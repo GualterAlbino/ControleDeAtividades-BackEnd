@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: controle-de-atividades-api
+  main:
+    web-application-type: servlet
+  web:
+    resources:
+      add-mappings: false
+  datasource:
+    name: controle-database
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/controle-database?currentSchema=controle
+    username: controle
+    password: controle
+
+server:
+  port: 8080

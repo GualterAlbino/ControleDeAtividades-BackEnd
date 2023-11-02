@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "4ec2f46a-81c4-47a8-b581-fdfcbbb03934",
+		"name": "Projeto Prático - Paulo Noé",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24513123"
+	},
+	"item": [
+		{
+			"name": "Transacao",
+			"item": [
+				{
+					"name": "Obter Todas Transações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}/transacao"
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Transações por Ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/transacao/:ticket",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"transacao",
+								":ticket"
+							],
+							"variable": [
+								{
+									"key": "ticket",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Transação Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/transacao/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"transacao",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "28f37efb-44b0-4826-9d5a-d5d8f317c184"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Transação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"ticket\": \"XFR11\",\r\n   \"tipo\": \"FII\",\r\n   \"usuario\": \"7d9cd1ad-3f8e-4256-86d0-2bca91196433\",\r\n   \"operacao\":\"Compra\",\r\n    \"descricao\":\"Indicado pelo Stempliuc\",\r\n    \"quantidade\": 10, \r\n    \"valor_unitario\": 10.00,\r\n    \"valor_total\": 100,\r\n    \"data_hora\": \"10/02/2023 19:54:06\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/transacao"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Transação",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"ticket\": \"XFR11\",\r\n   \"tipo\": \"FII\",\r\n   \"usuario\": \"7d9cd1ad-3f8e-4256-86d0-2bca91196433\",\r\n   \"operacao\":\"Compra\",\r\n    \"descricao\":\"Indicado pelo Stempliuc\",\r\n    \"quantidade\": 10, \r\n    \"valor_unitario\": 10.00,\r\n    \"valor_total\": 100.00,\r\n    \"data_hora\": \"10/02/2023 19:54:06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/transacao/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"transacao",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "50f0122e-ca5f-496b-a88c-4167e5ca49fa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Transação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/transacao/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"transacao",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "28f37efb-44b0-4826-9d5a-d5d8f317c184"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Obter Dados do Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/usuario/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "422c713a-084d-4595-86fc-5d0efd7600a8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Gualter Albino\",\r\n    \"senha\": \"Stempliuc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Paulo Ricardo Noé\",\r\n    \"senha\": \"bcvbcvbcvb1c15651bccvb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/usuario/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "422c713a-084d-4595-86fc-5d0efd7600a8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/usuario/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "422c713a-084d-4595-86fc-5d0efd7600a8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carteira",
+			"item": [
+				{
+					"name": "Obter Carteira",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/carteira/:idUsuario",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"carteira",
+								":idUsuario"
+							],
+							"variable": [
+								{
+									"key": "idUsuario",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
