@@ -62,7 +62,6 @@ class ProjetoJDBCRepository (
             LOGGER.error { "Houve um erro ao consultar o projeto: ${ex.message}" }
             throw ex
         }
-
         return projeto
     }
 
