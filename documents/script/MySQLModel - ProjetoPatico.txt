@@ -35,23 +35,23 @@ CREATE TABLE Professor (
 );
 
 CREATE TABLE Tipo_De_Trabalho (
-  id VARCHAR(45) NOT NULL,
+  id UUID NOT NULL,
   descricao VARCHAR(45) NOT NULL,
   CONSTRAINT pk_tipo_de_trabalho PRIMARY KEY (id)
 );
 
 CREATE TABLE Historico (
-  id VARCHAR(45) NOT NULL,
+  id UUID NOT NULL,
   data_hora_saida VARCHAR(45),
   data_hora_entrada VARCHAR(45),
   CONSTRAINT pk_historico PRIMARY KEY (id)
 );
 
 CREATE TABLE Atividade (
-  id VARCHAR(45) NOT NULL,
-  id_tipo_trabalho VARCHAR(45) NOT NULL,
-  id_historico VARCHAR(45) NOT NULL,
-  descricao VARCHAR(45) NOT NULL,
+  id UUID NOT NULL,
+  id_tipo_trabalho UUID NOT NULL,
+  id_historico UUID NOT NULL,
+  descricao UUID NOT NULL,
   finalizada SMALLINT NOT NULL,
   cpf_professor_responsavel CHAR(14) NOT NULL CHECK (cpf_professor_responsavel ~ '^\d{3}\.\d{3}\.\d{3}-\d{2}$'),
   CONSTRAINT pk_atividade PRIMARY KEY (id),
@@ -64,8 +64,8 @@ CREATE TABLE Atividade (
 );
 
 CREATE TABLE Atividade_Dependente (
-  id_atividade_principal VARCHAR(45) NOT NULL,
-  id_atividade_dependente VARCHAR(45) NOT NULL,
+  id_atividade_principal UUID NOT NULL,
+  id_atividade_dependente UUID NOT NULL,
   CONSTRAINT pk_atividade_dependente PRIMARY KEY (id_atividade_principal, id_atividade_dependente),
   CONSTRAINT fk_atv_principal FOREIGN KEY (id_atividade_principal)
   REFERENCES Atividade (id),
@@ -74,7 +74,7 @@ CREATE TABLE Atividade_Dependente (
 );
 
 CREATE TABLE Projeto (
-  id VARCHAR(45) NOT NULL,
+  id UUID NOT NULL,
   cpf_coordenador CHAR(14) NOT NULL CHECK (cpf_coordenador ~ '^\d{3}\.\d{3}\.\d{3}-\d{2}$'),
   nome VARCHAR(45),
   objetivo VARCHAR(45),
@@ -86,8 +86,8 @@ CREATE TABLE Projeto (
 
 CREATE TABLE Pessoa_Projeto_Atividade (
   pessoa_cpf CHAR(14) NOT NULL CHECK (pessoa_cpf ~ '^\d{3}\.\d{3}\.\d{3}-\d{2}$'),
-  projeto_id VARCHAR(45) NOT NULL,
-  atividade_id VARCHAR(45) NOT NULL,
+  projeto_id UUID NOT NULL,
+  atividade_id UUID NOT NULL,
   horas_trab VARCHAR(45) NOT NULL,
   CONSTRAINT pk_pessoa_projeto_atividade PRIMARY KEY (pessoa_cpf, projeto_id, atividade_id),
   CONSTRAINT fk_pessoa_projeto_pessoa FOREIGN KEY (pessoa_cpf)
