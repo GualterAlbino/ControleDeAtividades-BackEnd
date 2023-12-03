@@ -51,7 +51,7 @@ CREATE TABLE Atividade (
   id UUID NOT NULL,
   id_tipo_trabalho UUID NOT NULL,
   id_historico UUID NOT NULL,
-  descricao UUID NOT NULL,
+  descricao VARCHAR(45) NOT NULL,
   finalizada SMALLINT NOT NULL,
   cpf_professor_responsavel CHAR(14) NOT NULL CHECK (cpf_professor_responsavel ~ '^\d{3}\.\d{3}\.\d{3}-\d{2}$'),
   CONSTRAINT pk_atividade PRIMARY KEY (id),
