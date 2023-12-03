@@ -17,8 +17,5 @@ object AtividadeSQLExpressions {
     WHERE id = :id
     """.trimIndent()
 
-    fun sqlDeleteById() = """
-    DELETE FROM Atividade 
-    WHERE id = :id
-    """.trimIndent()
+    fun sqlDeleteById() = """DELETE FROM Atividade WHERE id = :id""".trimIndent()
 }

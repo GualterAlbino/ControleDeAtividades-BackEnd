@@ -5,7 +5,6 @@ import br.com.ControleDeAtividades.adapters.jdbc.atividade.AtividadeSQLExpressio
 import br.com.ControleDeAtividades.adapters.jdbc.atividade.AtividadeSQLExpressions.sqlSelectAll
 import br.com.ControleDeAtividades.adapters.jdbc.atividade.AtividadeSQLExpressions.sqlSelectById
 import br.com.ControleDeAtividades.adapters.jdbc.atividade.AtividadeSQLExpressions.sqlUpdateAtividade
-import br.com.ControleDeAtividades.adapters.jdbc.projeto.ProjetoSQLExpressions
 import br.com.ControleDeAtividades.domain.atividade.Atividade
 import br.com.ControleDeAtividades.domain.atividade.AtividadeRepository
 import mu.KotlinLogging
@@ -53,20 +52,20 @@ class AtividadeJDBCRepository(
     }
 
     override fun buscarPorId(atividadeId: UUID): Atividade? {
-        val ativiade = try {
-            val params = MapSqlParameterSource("id", atividadeId.toString())
+        val atividade = try {
+            val params = MapSqlParameterSource("id", atividadeId)
+            println(params.toString())
             db.query(sqlSelectById(), params, rowMapper()).firstOrNull()
         } catch (ex: Exception) {
-            ex.printStackTrace()
             LOGGER.error { "Houve um erro ao consultar a atividade: ${ex.message}" }
             throw ex
         }
-        return ativiade
+        return atividade
     }
 
     override fun deletar(atividadeId: UUID): Boolean {
         try {
-            val params = MapSqlParameterSource("id", atividadeId.toString())
+            val params = MapSqlParameterSource("id", atividadeId)
             val linhasExcluidas = db.update(
                     sqlDeleteById(),
                     params
