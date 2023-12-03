@@ -5,9 +5,9 @@ import br.com.ControleDeAtividades.domain.projeto.Projeto
 import java.util.*
 
 interface EstagiarioRepository {
-    fun inserir(estagiario: Estagiario, cpf:Pessoa): Boolean
+    fun inserir(estagiario: Estagiario): Boolean
     fun buscarTodos(): List<Estagiario>
-    fun buscarPorId(estagiarioRa: String): Estagiario?
-    fun deletar(estagiarioRa: String): Boolean
+    fun buscarPorId(estagiarioRa: Int): Estagiario?
+    fun deletar(estagiarioRa: Int): Boolean
     fun atualizar(estagiario: Estagiario): Boolean
 }
